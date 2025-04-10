@@ -377,6 +377,13 @@ nav {
     margin: 0 auto;
 }
 
+/* Courses/Workshops Section */
+.courses {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .section-title {
     font-size: 2.5rem;
     text-align: center;
@@ -388,6 +395,47 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     align-items: stretch;
+    margin-top: 3rem;
+}
+
+.courses .cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.courses .glass-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.courses .card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.courses .card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.courses .card-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    margin-bottom: 0;
+}
+
+.courses h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    line-height: 1.2;
 }
 
 .card-icon {
@@ -995,6 +1043,31 @@ footer {
     .hero-content h1:last-of-type {
         margin-bottom: 2rem;
     }
+    
+    .courses .cards-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .courses .card-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    
+    .courses .glass-card .card-icon {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 0;
+        margin-right: 0.8rem;
+    }
+    
+    .courses h3 {
+        font-size: 1.3rem;
+        margin: 0;
+        white-space: normal;
+        line-height: 1.2;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1210,5 +1283,18 @@ footer {
     
     .hero-content h1:last-of-type {
         margin-bottom: 1.8rem;
+    }
+    
+    .courses .glass-card .card-icon {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .courses h3 {
+        font-size: 1.2rem;
+        margin-left: 0.2rem;
+        white-space: normal;
+        line-height: 1.2;
     }
 } 
