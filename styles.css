@@ -470,7 +470,7 @@ nav {
 
 .products .glass-card .card-content {
     flex: 1;
-    min-height: 250px;
+    min-height: 180px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -950,7 +950,7 @@ footer {
     }
     
     .products .product-image {
-        margin-top: 1.5rem;
+        margin-top: 0.5rem;
         margin-left: 0;
         text-align: left;
         display: flex;
@@ -1129,7 +1129,7 @@ footer {
     }
     
     .products .product-image {
-        margin-top: 1.2rem;
+        margin-top: 0.4rem;
     }
     
     .product-img {
