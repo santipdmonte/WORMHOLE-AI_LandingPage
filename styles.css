@@ -256,7 +256,7 @@ nav {
 }
 
 .hero-content h1:last-of-type {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
 }
 
 .hero-content h1 span:not(.changing-text) {
@@ -413,6 +413,7 @@ nav {
     margin-bottom: 0.5rem;
     font-size: 1.5rem;
     white-space: nowrap;
+    color: var(--text-light);
 }
 
 /* Special handling for the Business Automation card */
@@ -469,10 +470,11 @@ nav {
 
 .products .glass-card .card-content {
     flex: 1;
+    min-height: 250px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: space-between;
+    text-align: left;
 }
 
 .products .card-header {
@@ -489,8 +491,11 @@ nav {
 }
 
 .products .glass-card h3 {
-    margin-bottom: 0;
-    line-height: 1;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: var(--text-light);
+    text-align: left;
 }
 
 .products .icon-circle {
@@ -525,6 +530,13 @@ nav {
     transform: scale(1.05);
 }
 
+.products .glass-card p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: left;
+}
+
 /* About Section */
 .about {
     padding: 6rem 2rem;
@@ -535,6 +547,19 @@ nav {
 .about-content {
     max-width: 800px;
     margin: 0 auto;
+    text-align: center;
+}
+
+.about-tagline {
+    margin: 0.5rem auto 1.5rem;
+    max-width: 700px;
+}
+
+.about-tagline p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #e0e0ff;
+    line-height: 1.5;
 }
 
 .about-intro {
@@ -552,31 +577,84 @@ nav {
 
 .about-subtitle {
     font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
 }
 
 .about-mission p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     max-width: 700px;
     margin: 0 auto;
+    line-height: 1.8;
 }
 
 .about-content p {
-    text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
 }
 
 .highlights {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    margin-top: 1rem;
 }
 
 .highlight-item {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    text-align: left;
+    padding: 1.8rem;
+    transition: transform 0.3s ease;
+    position: relative;
+    border-radius: 16px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: var(--card-shadow);
+}
+
+@keyframes gradientBorder {
+    0% {
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+        background-size: 200% 200%;
+        background-position: 0% 50%;
+    }
+    50% {
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+        background-size: 200% 200%;
+        background-position: 100% 50%;
+    }
+    100% {
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+        background-size: 200% 200%;
+        background-position: 0% 50%;
+    }
+}
+
+.highlight-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: 16px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+    background-size: 200% 200%;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    animation: gradientBorder 6s ease infinite;
+}
+
+.highlight-item:hover {
+    transform: translateY(-5px);
 }
 
 .highlight-icon {
@@ -584,9 +662,16 @@ nav {
 }
 
 .highlight-item h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-bottom: 1rem;
-    color: var(--primary-color);
+    color: var(--text-light);
+    text-align: left;
+}
+
+.highlight-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: left;
 }
 
 /* Contact Form */
@@ -727,7 +812,7 @@ footer {
     }
     
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         margin-bottom: 0.1rem;
     }
     
@@ -746,7 +831,7 @@ footer {
     }
     
     .changing-text {
-        font-size: 2.8rem;
+        font-size: 3.2rem;
     }
     
     .products .glass-card {
@@ -779,6 +864,7 @@ footer {
         margin-top: 0;
         margin-bottom: 0;
         text-align: left;
+        color: var(--text-light);
     }
     
     .products .glass-card p {
@@ -791,6 +877,11 @@ footer {
         gap: 1rem;
         min-height: auto;
         padding-bottom: 3rem;
+        text-align: left;
+    }
+    
+    .hero-content {
+        text-align: left;
     }
     
     header {
@@ -842,6 +933,7 @@ footer {
         margin-top: 0;
         margin-bottom: 0;
         text-align: left;
+        color: var(--text-light);
     }
     
     .products .card-header {
@@ -882,6 +974,27 @@ footer {
     .footer-links {
         gap: 1.5rem;
     }
+    
+    .about-content {
+        padding: 2rem;
+    }
+    
+    .about-subtitle {
+        font-size: 1.6rem;
+    }
+    
+    .highlights {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .highlight-item {
+        padding: 1.5rem;
+    }
+    
+    .hero-content h1:last-of-type {
+        margin-bottom: 2rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -891,7 +1004,7 @@ footer {
     }
     
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 2.4rem;
         margin-bottom: 0.1rem;
     }
     
@@ -915,7 +1028,7 @@ footer {
     }
     
     .changing-text {
-        font-size: 2.3rem;
+        font-size: 2.9rem;
     }
     
     .sphere-img {
@@ -929,6 +1042,11 @@ footer {
         gap: 0.8rem;
         min-height: auto;
         padding-bottom: 2rem;
+        text-align: left;
+    }
+    
+    .hero-content {
+        text-align: left;
     }
     
     header {
@@ -937,6 +1055,13 @@ footer {
     
     .hero .glass-card {
         padding: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .cta-button {
+        align-self: flex-start;
     }
     
     .hero-image {
@@ -987,6 +1112,7 @@ footer {
         margin-top: 0;
         margin-bottom: 0;
         text-align: left;
+        color: var(--text-light);
     }
     
     .products .glass-card p {
@@ -1060,5 +1186,29 @@ footer {
     .copyright {
         font-size: 0.8rem;
         margin-top: 0.5rem;
+    }
+    
+    .about-content {
+        padding: 1.5rem;
+    }
+    
+    .about-subtitle {
+        font-size: 1.4rem;
+    }
+    
+    .about-mission p {
+        font-size: 1.1rem;
+    }
+    
+    .highlight-item h3 {
+        font-size: 1.3rem;
+    }
+    
+    .highlight-item {
+        padding: 1.2rem;
+    }
+    
+    .hero-content h1:last-of-type {
+        margin-bottom: 1.8rem;
     }
 } 
