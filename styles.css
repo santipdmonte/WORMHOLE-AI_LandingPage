@@ -132,7 +132,7 @@ ul {
 
 /* Navigation */
 header {
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     position: fixed;
     width: 100%;
     z-index: 100;
@@ -152,13 +152,13 @@ nav {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 55px;
+    width: auto;
 }
 
 .nav-links {
@@ -1123,7 +1123,7 @@ footer {
     }
     
     header {
-        padding: 0.8rem 0;
+        padding: 0.4rem 0;
     }
     
     .hero .glass-card {
@@ -1296,5 +1296,10 @@ footer {
         margin-left: 0.2rem;
         white-space: normal;
         line-height: 1.2;
+    }
+    
+    header .logo img {
+        height: 40px;
+        width: auto;
     }
 } 
