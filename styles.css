@@ -689,13 +689,9 @@ nav {
     border-radius: 16px;
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color));
     background-size: 200% 200%;
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    mask: 
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
     mask-composite: exclude;
     pointer-events: none;
     animation: gradientBorder 6s ease infinite;
@@ -1071,6 +1067,24 @@ footer {
 }
 
 @media (max-width: 576px) {
+    nav {
+        padding: 0.5rem 1rem;
+        align-items: center;
+        height: 60px;
+    }
+    
+    .logo {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        padding-top: 0.5rem;
+    }
+    
+    header .logo img {
+        height: 38px;
+        width: auto;
+    }
+    
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;
@@ -1296,10 +1310,5 @@ footer {
         margin-left: 0.2rem;
         white-space: normal;
         line-height: 1.2;
-    }
-    
-    header .logo img {
-        height: 40px;
-        width: auto;
     }
 } 
