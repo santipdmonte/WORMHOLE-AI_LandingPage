@@ -21,7 +21,17 @@ if (mobileMenuBtn) {
     
     // Close menu when clicking a link
     document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (e) => {
+            // Don't close menu when clicking language switcher
+            if (link.closest('.language-switcher')) {
+                // Only if the link isn't already active
+                if (!link.classList.contains('active')) {
+                    return; // Let the navigation happen
+                }
+                e.preventDefault(); // Prevent clicking on the current language
+                return;
+            }
+            
             mobileMenuBtn.classList.remove('active');
             navLinks.classList.remove('active');
         });
@@ -79,9 +89,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Enhanced text animation control with smoother transition
     const changingText = document.querySelector('.changing-text');
     if (changingText) {
-        // Store the original text - ensure no extra spaces
-        const originalText = changingText.textContent.trim();
-        const alternateText = 'Money';
+        // Detect the language from html lang attribute
+        const language = document.documentElement.lang || 'en';
+        
+        // Define text variants for each language
+        const textOptions = {
+            en: {
+                first: 'Time',
+                second: 'Money'
+            },
+            es: {
+                first: 'Tiempo',
+                second: 'Dinero'
+            }
+        };
+        
+        // Use the appropriate language texts or fall back to English
+        const languageTexts = textOptions[language] || textOptions.en;
+        const originalText = languageTexts.first;
+        const alternateText = languageTexts.second;
         
         // Set initial text with no spaces
         changingText.textContent = originalText;

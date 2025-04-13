@@ -1,0 +1,21 @@
+RewriteEngine On
+
+# Set default language based on browser preferences
+RewriteCond %{HTTP:Accept-Language} ^es [NC]
+RewriteCond %{REQUEST_URI} ^/$ [NC]
+RewriteRule ^(.*)$ /index.html [L,R=302]
+
+# For English preference, redirect to en.html
+RewriteCond %{HTTP:Accept-Language} !^es [NC]
+RewriteCond %{REQUEST_URI} ^/$ [NC]
+RewriteRule ^(.*)$ /en.html [L,R=302]
+
+# Handle explicit language requests
+RewriteRule ^es/?$ /index.html [L,NC]
+RewriteRule ^en/?$ /en.html [L,NC]
+
+# Default page (root URL) redirects to index.html (Spanish)
+RewriteRule ^$ /index.html [L]
+
+# Error document handling
+ErrorDocument 404 /index.html 
